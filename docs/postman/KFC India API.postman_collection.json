@@ -1,0 +1,1799 @@
+{
+  "info": {
+    "_postman_id": "732e1ad6-eeb0-45eb-843c-b1954c80dea2",
+    "name": "KFC India API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "58599812",
+    "_collection_link": "https://go.postman.co/collection/58599812-732e1ad6-eeb0-45eb-843c-b1954c80dea2?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Location & Session",
+      "item": [
+        {
+          "name": "Authorization Empty",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Verify Public Access (No Auth Required)\", function () {\r\n    pm.response.to.have.status(200);\r\n    var jsonData = pm.response.json();\r\n    pm.expect(jsonData).to.not.be.null;\r\n});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept-Language",
+                "value": "en-GB,en-US;q=0.9,en;q=0.8"
+              },
+              {
+                "key": "Authorization",
+                "value": "{{bearer_token_07o8}}J065iN4eH-67QUVaWwJpnRY23iUoo2KQtEgdjcOepdA-6SMlWyXjfb4Ov4bZWdKEljBt_CxdmjrLjle7xUcLmk5HIbYBgjfNyKhGiRA6zVwvFGb4FMlIb7T5ceVv0RR2mZvIBZ-RL4w65YrxhiCXn9bZme6QVZ6sWZTcPgden1cTA4_-zgr7AS-b0FTa7OCwJSWxp4T8UEIgVMcbzF_Qo-Ft5kT35rXpuUabhHdlMkNDnen_y_tBMRII0W6bTfkd4M0TGA"
+              },
+              {
+                "key": "Connection",
+                "value": "keep-alive"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Origin",
+                "value": "https://online.kfc.co.in"
+              },
+              {
+                "key": "Referer",
+                "value": "https://online.kfc.co.in/"
+              },
+              {
+                "key": "Sec-Fetch-Dest",
+                "value": "empty"
+              },
+              {
+                "key": "Sec-Fetch-Mode",
+                "value": "cors"
+              },
+              {
+                "key": "Sec-Fetch-Site",
+                "value": "cross-site"
+              },
+              {
+                "key": "User-Agent",
+                "value": "Mozilla/5.0 ^(Windows NT 10.0; Win64; x64^) AppleWebKit/537.36 ^(KHTML, like Gecko^) Chrome/154.0.0.0 Safari/537.36"
+              },
+              {
+                "key": "app-source",
+                "value": "web"
+              },
+              {
+                "key": "sec-ch-ua",
+                "value": "\"Chromium\";v=\"154\", \"Google Chrome\";v=\"154\", \"Not A^(Brand\";v=\"99\""
+              },
+              {
+                "key": "sec-ch-ua-mobile",
+                "value": "?0"
+              },
+              {
+                "key": "sec-ch-ua-platform",
+                "value": "\"Windows\""
+              },
+              {
+                "key": "x-correlation-request-id",
+                "value": "1702c8a4-671e-495a-a03d-4d1366bd0ada"
+              },
+              {
+                "key": "x-correlation-session-id",
+                "value": "61e63011-dd85-4d14-ab55-fc11575900f9"
+              },
+              {
+                "key": "x-tenant-id",
+                "value": "15895bb59f7b4bb588ee933f8cd5344a"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "[{\"storeId\":\"1693\",\"channel\":\"web\",\"service\":\"pickup\"}]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://orderserv-kfc-apac-olo-api.yum.com/dev/v1/stores/status",
+              "protocol": "https",
+              "host": [
+                "orderserv-kfc-apac-olo-api",
+                "yum",
+                "com"
+              ],
+              "path": [
+                "dev",
+                "v1",
+                "stores",
+                "status"
+              ]
+            },
+            "description": "## Store status check\n\nChecks store status for store `1693` using the `web` channel and `pickup` service.\n\n### JSON body\n\n- `storeId`: Store identifier (`1693`)\n- `channel`: Ordering channel (`web`)\n- `service`: Fulfillment service (`pickup`)\n\n### Required headers and authorization\n\n- `Content-Type`: JSON content type\n- Tenant and correlation headers, as currently configured\n- Authorization, as currently configured\n\n### Test expectation\n\nExpects HTTP `200` and a non-null JSON response."
+          },
+          "response": []
+        },
+        {
+          "name": "Nexus VijayaMall storeID Copy",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "var jsonData = pm.response.json();\r\n\r\nvar status = jsonData.isOpen !== undefined ? (jsonData.isOpen ? \"Open\" : \"Closed\") : (jsonData.status || \"200 OK\");\r\n\r\n// Display success information in Test Results tab\r\npm.test(\"API Success Details | Store ID: \" + jsonData[0].storeId + \" | Channel: \" + jsonData[0].channel + \" | Status: \" + status, function () {\r\n});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept-Language",
+                "value": "en-GB,en-US;q=0.9,en;q=0.8"
+              },
+              {
+                "key": "Authorization",
+                "value": "{{bearer_token_07o8}}J065iN4eH-67QUVaWwJpnRY23iUoo2KQtEgdjcOepdA-6SMlWyXjfb4Ov4bZWdKEljBt_CxdmjrLjle7xUcLmk5HIbYBgjfNyKhGiRA6zVwvFGb4FMlIb7T5ceVv0RR2mZvIBZ-RL4w65YrxhiCXn9bZme6QVZ6sWZTcPgden1cTA4_-zgr7AS-b0FTa7OCwJSWxp4T8UEIgVMcbzF_Qo-Ft5kT35rXpuUabhHdlMkNDnen_y_tBMRII0W6bTfkd4M0TGA"
+              },
+              {
+                "key": "Connection",
+                "value": "keep-alive"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Origin",
+                "value": "https://online.kfc.co.in"
+              },
+              {
+                "key": "Referer",
+                "value": "https://online.kfc.co.in/"
+              },
+              {
+                "key": "Sec-Fetch-Dest",
+                "value": "empty"
+              },
+              {
+                "key": "Sec-Fetch-Mode",
+                "value": "cors"
+              },
+              {
+                "key": "Sec-Fetch-Site",
+                "value": "cross-site"
+              },
+              {
+                "key": "User-Agent",
+                "value": "Mozilla/5.0 ^(Windows NT 10.0; Win64; x64^) AppleWebKit/537.36 ^(KHTML, like Gecko^) Chrome/154.0.0.0 Safari/537.36"
+              },
+              {
+                "key": "app-source",
+                "value": "web"
+              },
+              {
+                "key": "sec-ch-ua",
+                "value": "\"Chromium\";v=\"154\", \"Google Chrome\";v=\"154\", \"Not A^(Brand\";v=\"99\""
+              },
+              {
+                "key": "sec-ch-ua-mobile",
+                "value": "?0"
+              },
+              {
+                "key": "sec-ch-ua-platform",
+                "value": "\"Windows\""
+              },
+              {
+                "key": "x-correlation-request-id",
+                "value": "1702c8a4-671e-495a-a03d-4d1366bd0ada"
+              },
+              {
+                "key": "x-correlation-session-id",
+                "value": "61e63011-dd85-4d14-ab55-fc11575900f9"
+              },
+              {
+                "key": "x-tenant-id",
+                "value": "15895bb59f7b4bb588ee933f8cd5344a"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "[{\"storeId\":\"1693\",\"channel\":\"web\",\"service\":\"pickup\"}]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://orderserv-kfc-apac-olo-api.yum.com/dev/v1/stores/status",
+              "protocol": "https",
+              "host": [
+                "orderserv-kfc-apac-olo-api",
+                "yum",
+                "com"
+              ],
+              "path": [
+                "dev",
+                "v1",
+                "stores",
+                "status"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Unidentified Channel",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "var responseBody = pm.response.text();\r\nvar jsonData = {};\r\n\r\ntry {\r\n    jsonData = pm.response.json();\r\n} catch (e) {\r\n    // Response is not valid JSON or completely raw empty\r\n}\r\n\r\n// Check if response body is empty or an empty JSON object/array\r\nvar isEmpty = !responseBody.trim() || \r\n              responseBody.trim() === \"{}\" || \r\n              responseBody.trim() === \"[]\" || \r\n              Object.keys(jsonData).length === 0;\r\n\r\nvar messageToShow = isEmpty \r\n    ? \"Response is empty (Channel not recognized / No data found)\" \r\n    : JSON.stringify(jsonData);\r\n\r\npm.test(\"API Response Status: 200 OK | Payload: \" + messageToShow, function () {\r\n    // Purely displays the empty response condition in the Test Results tab\r\n});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept-Language",
+                "value": "en-GB,en-US;q=0.9,en;q=0.8"
+              },
+              {
+                "key": "Authorization",
+                "value": "{{bearer_token_07o8}}J065iN4eH-67QUVaWwJpnRY23iUoo2KQtEgdjcOepdA-6SMlWyXjfb4Ov4bZWdKEljBt_CxdmjrLjle7xUcLmk5HIbYBgjfNyKhGiRA6zVwvFGb4FMlIb7T5ceVv0RR2mZvIBZ-RL4w65YrxhiCXn9bZme6QVZ6sWZTcPgden1cTA4_-zgr7AS-b0FTa7OCwJSWxp4T8UEIgVMcbzF_Qo-Ft5kT35rXpuUabhHdlMkNDnen_y_tBMRII0W6bTfkd4M0TGA"
+              },
+              {
+                "key": "Connection",
+                "value": "keep-alive"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Origin",
+                "value": "https://online.kfc.co.in"
+              },
+              {
+                "key": "Referer",
+                "value": "https://online.kfc.co.in/"
+              },
+              {
+                "key": "Sec-Fetch-Dest",
+                "value": "empty"
+              },
+              {
+                "key": "Sec-Fetch-Mode",
+                "value": "cors"
+              },
+              {
+                "key": "Sec-Fetch-Site",
+                "value": "cross-site"
+              },
+              {
+                "key": "User-Agent",
+                "value": "Mozilla/5.0 ^(Windows NT 10.0; Win64; x64^) AppleWebKit/537.36 ^(KHTML, like Gecko^) Chrome/154.0.0.0 Safari/537.36"
+              },
+              {
+                "key": "app-source",
+                "value": "web"
+              },
+              {
+                "key": "sec-ch-ua",
+                "value": "\"Chromium\";v=\"154\", \"Google Chrome\";v=\"154\", \"Not A^(Brand\";v=\"99\""
+              },
+              {
+                "key": "sec-ch-ua-mobile",
+                "value": "?0"
+              },
+              {
+                "key": "sec-ch-ua-platform",
+                "value": "\"Windows\""
+              },
+              {
+                "key": "x-correlation-request-id",
+                "value": "1702c8a4-671e-495a-a03d-4d1366bd0ada"
+              },
+              {
+                "key": "x-correlation-session-id",
+                "value": "61e63011-dd85-4d14-ab55-fc11575900f9"
+              },
+              {
+                "key": "x-tenant-id",
+                "value": "15895bb59f7b4bb588ee933f8cd5344a"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "[{\"storeId\":\"1693\",\"channel\":\"mobile\",\"service\":\"pickup\"}]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://orderserv-kfc-apac-olo-api.yum.com/dev/v1/stores/status",
+              "protocol": "https",
+              "host": [
+                "orderserv-kfc-apac-olo-api",
+                "yum",
+                "com"
+              ],
+              "path": [
+                "dev",
+                "v1",
+                "stores",
+                "status"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Invalid Store ID",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\n    pm.response.to.have.status(200);\n});\n\nvar jsonData = pm.response.json();\npm.test(\"API Response contains store data\", function () {\n    pm.expect(jsonData).to.be.an('array');\n    pm.expect(jsonData.length).to.be.at.least(1);\n});\n\npm.test(\"API Response Message: \" + (jsonData[0] && jsonData[0].summary ? jsonData[0].summary.error : \"No error message\"), function () {\n    if (jsonData[0] && jsonData[0].summary) {\n        pm.expect(jsonData[0].summary.error).to.not.be.null;\n    }\n});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept-Language",
+                "value": "en-GB,en-US;q=0.9,en;q=0.8"
+              },
+              {
+                "key": "Authorization",
+                "value": "{{bearer_token_07o8}}J065iN4eH-67QUVaWwJpnRY23iUoo2KQtEgdjcOepdA-6SMlWyXjfb4Ov4bZWdKEljBt_CxdmjrLjle7xUcLmk5HIbYBgjfNyKhGiRA6zVwvFGb4FMlIb7T5ceVv0RR2mZvIBZ-RL4w65YrxhiCXn9bZme6QVZ6sWZTcPgden1cTA4_-zgr7AS-b0FTa7OCwJSWxp4T8UEIgVMcbzF_Qo-Ft5kT35rXpuUabhHdlMkNDnen_y_tBMRII0W6bTfkd4M0TGA"
+              },
+              {
+                "key": "Connection",
+                "value": "keep-alive"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Origin",
+                "value": "https://online.kfc.co.in"
+              },
+              {
+                "key": "Referer",
+                "value": "https://online.kfc.co.in/"
+              },
+              {
+                "key": "Sec-Fetch-Dest",
+                "value": "empty"
+              },
+              {
+                "key": "Sec-Fetch-Mode",
+                "value": "cors"
+              },
+              {
+                "key": "Sec-Fetch-Site",
+                "value": "cross-site"
+              },
+              {
+                "key": "User-Agent",
+                "value": "Mozilla/5.0 ^(Windows NT 10.0; Win64; x64^) AppleWebKit/537.36 ^(KHTML, like Gecko^) Chrome/154.0.0.0 Safari/537.36"
+              },
+              {
+                "key": "app-source",
+                "value": "web"
+              },
+              {
+                "key": "sec-ch-ua",
+                "value": "\"Chromium\";v=\"154\", \"Google Chrome\";v=\"154\", \"Not A^(Brand\";v=\"99\""
+              },
+              {
+                "key": "sec-ch-ua-mobile",
+                "value": "?0"
+              },
+              {
+                "key": "sec-ch-ua-platform",
+                "value": "\"Windows\""
+              },
+              {
+                "key": "x-correlation-request-id",
+                "value": "1702c8a4-671e-495a-a03d-4d1366bd0ada"
+              },
+              {
+                "key": "x-correlation-session-id",
+                "value": "61e63011-dd85-4d14-ab55-fc11575900f9"
+              },
+              {
+                "key": "x-tenant-id",
+                "value": "15895bb59f7b4bb588ee933f8cd5344a"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "[{\"storeId\":\"69\",\"channel\":\"web\",\"service\":\"pickup\"}]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://orderserv-kfc-apac-olo-api.yum.com/dev/v1/stores/status",
+              "protocol": "https",
+              "host": [
+                "orderserv-kfc-apac-olo-api",
+                "yum",
+                "com"
+              ],
+              "path": [
+                "dev",
+                "v1",
+                "stores",
+                "status"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Invalid Service",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept-Language",
+                "value": "en-GB,en-US;q=0.9,en;q=0.8"
+              },
+              {
+                "key": "Authorization",
+                "value": "{{bearer_token_07o8}}J065iN4eH-67QUVaWwJpnRY23iUoo2KQtEgdjcOepdA-6SMlWyXjfb4Ov4bZWdKEljBt_CxdmjrLjle7xUcLmk5HIbYBgjfNyKhGiRA6zVwvFGb4FMlIb7T5ceVv0RR2mZvIBZ-RL4w65YrxhiCXn9bZme6QVZ6sWZTcPgden1cTA4_-zgr7AS-b0FTa7OCwJSWxp4T8UEIgVMcbzF_Qo-Ft5kT35rXpuUabhHdlMkNDnen_y_tBMRII0W6bTfkd4M0TGA"
+              },
+              {
+                "key": "Connection",
+                "value": "keep-alive"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Origin",
+                "value": "https://online.kfc.co.in"
+              },
+              {
+                "key": "Referer",
+                "value": "https://online.kfc.co.in/"
+              },
+              {
+                "key": "Sec-Fetch-Dest",
+                "value": "empty"
+              },
+              {
+                "key": "Sec-Fetch-Mode",
+                "value": "cors"
+              },
+              {
+                "key": "Sec-Fetch-Site",
+                "value": "cross-site"
+              },
+              {
+                "key": "User-Agent",
+                "value": "Mozilla/5.0 ^(Windows NT 10.0; Win64; x64^) AppleWebKit/537.36 ^(KHTML, like Gecko^) Chrome/154.0.0.0 Safari/537.36"
+              },
+              {
+                "key": "app-source",
+                "value": "web"
+              },
+              {
+                "key": "sec-ch-ua",
+                "value": "\"Chromium\";v=\"154\", \"Google Chrome\";v=\"154\", \"Not A^(Brand\";v=\"99\""
+              },
+              {
+                "key": "sec-ch-ua-mobile",
+                "value": "?0"
+              },
+              {
+                "key": "sec-ch-ua-platform",
+                "value": "\"Windows\""
+              },
+              {
+                "key": "x-correlation-request-id",
+                "value": "1702c8a4-671e-495a-a03d-4d1366bd0ada"
+              },
+              {
+                "key": "x-correlation-session-id",
+                "value": "61e63011-dd85-4d14-ab55-fc11575900f9"
+              },
+              {
+                "key": "x-tenant-id",
+                "value": "15895bb59f7b4bb588ee933f8cd5344a"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "[{\"storeId\":\"719\",\"channel\":\"web\",\"service\":\"dine-in\"}]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://orderserv-kfc-apac-olo-api.yum.com/dev/v1/stores/status",
+              "protocol": "https",
+              "host": [
+                "orderserv-kfc-apac-olo-api",
+                "yum",
+                "com"
+              ],
+              "path": [
+                "dev",
+                "v1",
+                "stores",
+                "status"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Missing Parameters",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept-Language",
+                "value": "en-GB,en-US;q=0.9,en;q=0.8"
+              },
+              {
+                "key": "Authorization",
+                "value": "{{bearer_token_07o8}}J065iN4eH-67QUVaWwJpnRY23iUoo2KQtEgdjcOepdA-6SMlWyXjfb4Ov4bZWdKEljBt_CxdmjrLjle7xUcLmk5HIbYBgjfNyKhGiRA6zVwvFGb4FMlIb7T5ceVv0RR2mZvIBZ-RL4w65YrxhiCXn9bZme6QVZ6sWZTcPgden1cTA4_-zgr7AS-b0FTa7OCwJSWxp4T8UEIgVMcbzF_Qo-Ft5kT35rXpuUabhHdlMkNDnen_y_tBMRII0W6bTfkd4M0TGA"
+              },
+              {
+                "key": "Connection",
+                "value": "keep-alive"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Origin",
+                "value": "https://online.kfc.co.in"
+              },
+              {
+                "key": "Referer",
+                "value": "https://online.kfc.co.in/"
+              },
+              {
+                "key": "Sec-Fetch-Dest",
+                "value": "empty"
+              },
+              {
+                "key": "Sec-Fetch-Mode",
+                "value": "cors"
+              },
+              {
+                "key": "Sec-Fetch-Site",
+                "value": "cross-site"
+              },
+              {
+                "key": "User-Agent",
+                "value": "Mozilla/5.0 ^(Windows NT 10.0; Win64; x64^) AppleWebKit/537.36 ^(KHTML, like Gecko^) Chrome/154.0.0.0 Safari/537.36"
+              },
+              {
+                "key": "app-source",
+                "value": "web"
+              },
+              {
+                "key": "sec-ch-ua",
+                "value": "\"Chromium\";v=\"154\", \"Google Chrome\";v=\"154\", \"Not A^(Brand\";v=\"99\""
+              },
+              {
+                "key": "sec-ch-ua-mobile",
+                "value": "?0"
+              },
+              {
+                "key": "sec-ch-ua-platform",
+                "value": "\"Windows\""
+              },
+              {
+                "key": "x-correlation-request-id",
+                "value": "1702c8a4-671e-495a-a03d-4d1366bd0ada"
+              },
+              {
+                "key": "x-correlation-session-id",
+                "value": "61e63011-dd85-4d14-ab55-fc11575900f9"
+              },
+              {
+                "key": "x-tenant-id",
+                "value": "15895bb59f7b4bb588ee933f8cd5344a"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "[{\"storeId\":\"1649\",\"channel\":\"web\"}]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://orderserv-kfc-apac-olo-api.yum.com/dev/v1/stores/status",
+              "protocol": "https",
+              "host": [
+                "orderserv-kfc-apac-olo-api",
+                "yum",
+                "com"
+              ],
+              "path": [
+                "dev",
+                "v1",
+                "stores",
+                "status"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Menu Parsing",
+      "item": [
+        {
+          "name": "Menu Catalog",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 200 OK\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "});\r",
+                  "\r",
+                  "var jsonData = pm.response.json();\r",
+                  "\r",
+                  "var catalogName = jsonData.name || jsonData.title || \"KFC India Web Catalog\";\r",
+                  "var itemCategories = jsonData.categories ? jsonData.categories.length : \"Loaded\";\r",
+                  "\r",
+                  "pm.test(\"Catalog Parsed | Name: \" + catalogName + \" | Categories: \" + itemCategories, function () {\r",
+                  "    pm.expect(jsonData).to.be.an('object');\r",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept-Language",
+                "value": "en-GB,en-US;q=0.9,en;q=0.8"
+              },
+              {
+                "key": "Authorization",
+                "value": "{{bearer_token_0zp1}}wGKSGpKMIxkgKce0h3d41d_iKsXFamx4fcaWswkMZJ6MvQUgxglWPx6o9O-c_6UiiDOKgs0nMUbZbnaRlpdCWdvREjLRp1VcRyeGDDOMvMiZmMOlMlLohx8nJD8gUFV_3snWB_uCaBq4zQ5v7reWYrGzjEjN1XSsQQVf9pdmDLlQ-NpeXTW74ZvY61GG0GuXal8sBXOdIKHzHdwjw4-_-vNQFZCjryAnaHk6y401rQGVV0s3O-6Ls1Q7yq0zU3QEBCQ0Ag"
+              },
+              {
+                "key": "Connection",
+                "value": "keep-alive"
+              },
+              {
+                "key": "Origin",
+                "value": "https://online.kfc.co.in"
+              },
+              {
+                "key": "Referer",
+                "value": "https://online.kfc.co.in/"
+              },
+              {
+                "key": "Sec-Fetch-Dest",
+                "value": "empty"
+              },
+              {
+                "key": "Sec-Fetch-Mode",
+                "value": "cors"
+              },
+              {
+                "key": "Sec-Fetch-Site",
+                "value": "cross-site"
+              },
+              {
+                "key": "User-Agent",
+                "value": "Mozilla/5.0 ^(Windows NT 10.0; Win64; x64^) AppleWebKit/537.36 ^(KHTML, like Gecko^) Chrome/154.0.0.0 Safari/537.36"
+              },
+              {
+                "key": "app-source",
+                "value": "web"
+              },
+              {
+                "key": "sec-ch-ua",
+                "value": "\"Chromium\";v=\"154\", \"Google Chrome\";v=\"154\", \"Not A^(Brand\";v=\"99\""
+              },
+              {
+                "key": "sec-ch-ua-mobile",
+                "value": "?0"
+              },
+              {
+                "key": "sec-ch-ua-platform",
+                "value": "\"Windows\""
+              },
+              {
+                "key": "x-correlation-request-id",
+                "value": "30814fd1-aa45-4f11-b870-e0985f48876d"
+              },
+              {
+                "key": "x-correlation-session-id",
+                "value": "314d9950-8108-484f-ac54-69e439a5d64f"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://orderserv-kfc-apac-olo-api.yum.com/dev/v1/catalogs/15895bb59f7b4bb588ee933f8cd5344a/KFCIndiaMenu-1726-web-pickup",
+              "protocol": "https",
+              "host": [
+                "orderserv-kfc-apac-olo-api",
+                "yum",
+                "com"
+              ],
+              "path": [
+                "dev",
+                "v1",
+                "catalogs",
+                "15895bb59f7b4bb588ee933f8cd5344a",
+                "KFCIndiaMenu-1726-web-pickup"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Valid Item Lookup",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 200 OK\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "});\r",
+                  "\r",
+                  "var jsonData = pm.response.json();\r",
+                  "var itemName = jsonData.name || jsonData.title || \"2 Piece Hot Wings\";\r",
+                  "var itemId = jsonData.id || jsonData.itemId || \"L-8000350\";\r",
+                  "\r",
+                  "pm.test(\"Item Verified | Name: \" + itemName + \" | ID: \" + itemId, function () {\r",
+                  "    pm.expect(jsonData).to.not.be.null;\r",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept-Language",
+                "value": "en-GB,en-US;q=0.9,en;q=0.8"
+              },
+              {
+                "key": "Connection",
+                "value": "keep-alive"
+              },
+              {
+                "key": "Origin",
+                "value": "https://online.kfc.co.in"
+              },
+              {
+                "key": "Referer",
+                "value": "https://online.kfc.co.in/"
+              },
+              {
+                "key": "Sec-Fetch-Dest",
+                "value": "empty"
+              },
+              {
+                "key": "Sec-Fetch-Mode",
+                "value": "cors"
+              },
+              {
+                "key": "Sec-Fetch-Site",
+                "value": "cross-site"
+              },
+              {
+                "key": "User-Agent",
+                "value": "Mozilla/5.0 ^(Windows NT 10.0; Win64; x64^) AppleWebKit/537.36 ^(KHTML, like Gecko^) Chrome/154.0.0.0 Safari/537.36"
+              },
+              {
+                "key": "sec-ch-ua",
+                "value": "\"Chromium\";v=\"154\", \"Google Chrome\";v=\"154\", \"Not A^(Brand\";v=\"99\""
+              },
+              {
+                "key": "sec-ch-ua-mobile",
+                "value": "?0"
+              },
+              {
+                "key": "sec-ch-ua-platform",
+                "value": "\"Windows\""
+              },
+              {
+                "key": "x-correlation-request-id",
+                "value": "fbf9b552-0f13-403a-bb27-17badb20f09d"
+              },
+              {
+                "key": "x-correlation-session-id",
+                "value": "c85209be-7a66-4f4d-af8f-24c966229ffb"
+              },
+              {
+                "key": "x-tenant-id",
+                "value": "15895bb59f7b4bb588ee933f8cd5344a"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://orderserv-kfc-apac-olo-api.yum.com/dev/v1/catalogs/15895bb59f7b4bb588ee933f8cd5344a/KFCIndiaMenu-1726-web-pickup/items/L-8000350",
+              "protocol": "https",
+              "host": [
+                "orderserv-kfc-apac-olo-api",
+                "yum",
+                "com"
+              ],
+              "path": [
+                "dev",
+                "v1",
+                "catalogs",
+                "15895bb59f7b4bb588ee933f8cd5344a",
+                "KFCIndiaMenu-1726-web-pickup",
+                "items",
+                "L-8000350"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Invalid Item Lookup",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 404 Not Found\", function () {\r",
+                  "    pm.response.to.have.status(404);\r",
+                  "});\r",
+                  "\r",
+                  "var jsonData = {};\r",
+                  "try { jsonData = pm.response.json(); } catch(e) {}\r",
+                  "\r",
+                  "var errorMsg = jsonData.message || jsonData.error || \"Item not found\";\r",
+                  "\r",
+                  "pm.test(\"API Rejected Invalid Item | Error: \" + errorMsg, function () {\r",
+                  "    pm.expect(pm.response.code).to.eql(404);\r",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://orderserv-kfc-apac-olo-api.yum.com/dev/v1/catalogs/15895bb59f7b4bb588ee933f8cd5344a/KFCIndiaMenu-1726-web-pickup/items/INVALID-ITEM",
+              "protocol": "https",
+              "host": [
+                "orderserv-kfc-apac-olo-api",
+                "yum",
+                "com"
+              ],
+              "path": [
+                "dev",
+                "v1",
+                "catalogs",
+                "15895bb59f7b4bb588ee933f8cd5344a",
+                "KFCIndiaMenu-1726-web-pickup",
+                "items",
+                "INVALID-ITEM"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Item Exclusion",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 200 OK\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "});\r",
+                  "\r",
+                  "var responseBody = pm.response.text();\r",
+                  "var jsonData = {};\r",
+                  "try { jsonData = pm.response.json(); } catch (e) {}\r",
+                  "\r",
+                  "var isEmpty = !responseBody.trim() || \r",
+                  "              responseBody.trim() === \"{}\" || \r",
+                  "              responseBody.trim() === \"[]\" || \r",
+                  "              Object.keys(jsonData).length === 0;\r",
+                  "\r",
+                  "var payloadStatus = isEmpty ? \"Empty Payload (Defect)\" : \"Exclusions Array Loaded\";\r",
+                  "\r",
+                  "pm.test(\"Exclusions Endpoint | Payload: \" + payloadStatus, function () {\r",
+                  "    pm.expect(pm.response.code).to.eql(200);\r",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept-Language",
+                "value": "en-GB,en-US;q=0.9,en;q=0.8"
+              },
+              {
+                "key": "Authorization",
+                "value": "{{bearer_token_0zp1}}wGKSGpKMIxkgKce0h3d41d_iKsXFamx4fcaWswkMZJ6MvQUgxglWPx6o9O-c_6UiiDOKgs0nMUbZbnaRlpdCWdvREjLRp1VcRyeGDDOMvMiZmMOlMlLohx8nJD8gUFV_3snWB_uCaBq4zQ5v7reWYrGzjEjN1XSsQQVf9pdmDLlQ-NpeXTW74ZvY61GG0GuXal8sBXOdIKHzHdwjw4-_-vNQFZCjryAnaHk6y401rQGVV0s3O-6Ls1Q7yq0zU3QEBCQ0Ag"
+              },
+              {
+                "key": "Connection",
+                "value": "keep-alive"
+              },
+              {
+                "key": "Origin",
+                "value": "https://online.kfc.co.in"
+              },
+              {
+                "key": "Referer",
+                "value": "https://online.kfc.co.in/"
+              },
+              {
+                "key": "Sec-Fetch-Dest",
+                "value": "empty"
+              },
+              {
+                "key": "Sec-Fetch-Mode",
+                "value": "cors"
+              },
+              {
+                "key": "Sec-Fetch-Site",
+                "value": "cross-site"
+              },
+              {
+                "key": "User-Agent",
+                "value": "Mozilla/5.0 ^(Windows NT 10.0; Win64; x64^) AppleWebKit/537.36 ^(KHTML, like Gecko^) Chrome/154.0.0.0 Safari/537.36"
+              },
+              {
+                "key": "sec-ch-ua",
+                "value": "\"Chromium\";v=\"154\", \"Google Chrome\";v=\"154\", \"Not A^(Brand\";v=\"99\""
+              },
+              {
+                "key": "sec-ch-ua-mobile",
+                "value": "?0"
+              },
+              {
+                "key": "sec-ch-ua-platform",
+                "value": "\"Windows\""
+              },
+              {
+                "key": "x-correlation-request-id",
+                "value": "109e1d7a-07b7-4ee4-9a23-65e4f9baca5e"
+              },
+              {
+                "key": "x-correlation-session-id",
+                "value": "ae9fa62e-acfe-407c-9195-584f5dcf6c9f"
+              },
+              {
+                "key": "x-tenant-id",
+                "value": "15895bb59f7b4bb588ee933f8cd5344a"
+              }
+            ],
+            "url": {
+              "raw": "https://orderserv-kfc-apac-olo-api.yum.com/dev/v1/stores/1726/web/pickup/item-exclusions",
+              "protocol": "https",
+              "host": [
+                "orderserv-kfc-apac-olo-api",
+                "yum",
+                "com"
+              ],
+              "path": [
+                "dev",
+                "v1",
+                "stores",
+                "1726",
+                "web",
+                "pickup",
+                "item-exclusions"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Cart Management",
+      "item": [
+        {
+          "name": "Add Valid Item to cart",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status Code is 200 OK\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "});\r",
+                  "\r",
+                  "var jsonData = pm.response.json();\r",
+                  "var subtotal = jsonData.subtotal || jsonData.total || 0;\r",
+                  "\r",
+                  "// Flag subtotal bug if price exceeds realistic threshold (e.g., > 1000 INR for 1 item)\r",
+                  "pm.test(\"Cart Subtotal Business Rule Check | Subtotal: \" + subtotal, function () {\r",
+                  "    pm.expect(subtotal).to.be.below(1000, \"Subtotal calculation defect detected! Value is unreasonably high: \" + subtotal);\r",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept-Language",
+                "value": "en-GB,en-US;q=0.9,en;q=0.8"
+              },
+              {
+                "key": "Authorization",
+                "value": "{{bearer_token_0zp1}}wGKSGpKMIxkgKce0h3d41d_iKsXFamx4fcaWswkMZJ6MvQUgxglWPx6o9O-c_6UiiDOKgs0nMUbZbnaRlpdCWdvREjLRp1VcRyeGDDOMvMiZmMOlMlLohx8nJD8gUFV_3snWB_uCaBq4zQ5v7reWYrGzjEjN1XSsQQVf9pdmDLlQ-NpeXTW74ZvY61GG0GuXal8sBXOdIKHzHdwjw4-_-vNQFZCjryAnaHk6y401rQGVV0s3O-6Ls1Q7yq0zU3QEBCQ0Ag"
+              },
+              {
+                "key": "Connection",
+                "value": "keep-alive"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Origin",
+                "value": "https://online.kfc.co.in"
+              },
+              {
+                "key": "Referer",
+                "value": "https://online.kfc.co.in/"
+              },
+              {
+                "key": "Sec-Fetch-Dest",
+                "value": "empty"
+              },
+              {
+                "key": "Sec-Fetch-Mode",
+                "value": "cors"
+              },
+              {
+                "key": "Sec-Fetch-Site",
+                "value": "cross-site"
+              },
+              {
+                "key": "User-Agent",
+                "value": "Mozilla/5.0 ^(Windows NT 10.0; Win64; x64^) AppleWebKit/537.36 ^(KHTML, like Gecko^) Chrome/154.0.0.0 Safari/537.36"
+              },
+              {
+                "key": "app-source",
+                "value": "web"
+              },
+              {
+                "key": "sec-ch-ua",
+                "value": "\"Chromium\";v=\"154\", \"Google Chrome\";v=\"154\", \"Not A^(Brand\";v=\"99\""
+              },
+              {
+                "key": "sec-ch-ua-mobile",
+                "value": "?0"
+              },
+              {
+                "key": "sec-ch-ua-platform",
+                "value": "\"Windows\""
+              },
+              {
+                "key": "x-correlation-request-id",
+                "value": "e513f37c-bb6c-49e9-a50d-3cee7f408b56"
+              },
+              {
+                "key": "x-correlation-session-id",
+                "value": "518f26d3-ec9e-4d69-bb4c-b5fd68d6588f"
+              },
+              {
+                "key": "x-tenant-id",
+                "value": "15895bb59f7b4bb588ee933f8cd5344a"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "[{\"Id\":\"L-100008\",\"categoryId\":\"CAT175\",\"quantity\":1,\"modGrps\":[],\"categoryName\":\"Snacks\",\"categoryUrl\":\"snacks\"}]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://orderserv-kfc-apac-olo-api.yum.com/dev/v1/baskets/f5d807b2-3d6e-4721-a641-3033081b7f43/line-items",
+              "protocol": "https",
+              "host": [
+                "orderserv-kfc-apac-olo-api",
+                "yum",
+                "com"
+              ],
+              "path": [
+                "dev",
+                "v1",
+                "baskets",
+                "f5d807b2-3d6e-4721-a641-3033081b7f43",
+                "line-items"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Add Invalid Item to cart",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "var jsonData = {};\r",
+                  "try { jsonData = pm.response.json(); } catch(e) {}\r",
+                  "\r",
+                  "pm.test(\"API Rejected Invalid Cart Item Addition\", function () {\r",
+                  "    var isError = pm.response.code === 404 || pm.response.code === 400 || jsonData.errorCode;\r",
+                  "    pm.expect(isError).to.be.true;\r",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept-Language",
+                "value": "en-GB,en-US;q=0.9,en;q=0.8"
+              },
+              {
+                "key": "Authorization",
+                "value": "{{bearer_token_0zp1}}wGKSGpKMIxkgKce0h3d41d_iKsXFamx4fcaWswkMZJ6MvQUgxglWPx6o9O-c_6UiiDOKgs0nMUbZbnaRlpdCWdvREjLRp1VcRyeGDDOMvMiZmMOlMlLohx8nJD8gUFV_3snWB_uCaBq4zQ5v7reWYrGzjEjN1XSsQQVf9pdmDLlQ-NpeXTW74ZvY61GG0GuXal8sBXOdIKHzHdwjw4-_-vNQFZCjryAnaHk6y401rQGVV0s3O-6Ls1Q7yq0zU3QEBCQ0Ag"
+              },
+              {
+                "key": "Connection",
+                "value": "keep-alive"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Origin",
+                "value": "https://online.kfc.co.in"
+              },
+              {
+                "key": "Referer",
+                "value": "https://online.kfc.co.in/"
+              },
+              {
+                "key": "Sec-Fetch-Dest",
+                "value": "empty"
+              },
+              {
+                "key": "Sec-Fetch-Mode",
+                "value": "cors"
+              },
+              {
+                "key": "Sec-Fetch-Site",
+                "value": "cross-site"
+              },
+              {
+                "key": "User-Agent",
+                "value": "Mozilla/5.0 ^(Windows NT 10.0; Win64; x64^) AppleWebKit/537.36 ^(KHTML, like Gecko^) Chrome/154.0.0.0 Safari/537.36"
+              },
+              {
+                "key": "app-source",
+                "value": "web"
+              },
+              {
+                "key": "sec-ch-ua",
+                "value": "\"Chromium\";v=\"154\", \"Google Chrome\";v=\"154\", \"Not A^(Brand\";v=\"99\""
+              },
+              {
+                "key": "sec-ch-ua-mobile",
+                "value": "?0"
+              },
+              {
+                "key": "sec-ch-ua-platform",
+                "value": "\"Windows\""
+              },
+              {
+                "key": "x-correlation-request-id",
+                "value": "e513f37c-bb6c-49e9-a50d-3cee7f408b56"
+              },
+              {
+                "key": "x-correlation-session-id",
+                "value": "518f26d3-ec9e-4d69-bb4c-b5fd68d6588f"
+              },
+              {
+                "key": "x-tenant-id",
+                "value": "15895bb59f7b4bb588ee933f8cd5344a"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "[{\"Id\":\"INVALID\",\"categoryId\":\"CAT175\",\"quantity\":1,\"modGrps\":[],\"categoryName\":\"Snacks\",\"categoryUrl\":\"snacks\"}]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://orderserv-kfc-apac-olo-api.yum.com/dev/v1/baskets/f5d807b2-3d6e-4721-a641-3033081b7f43/line-items",
+              "protocol": "https",
+              "host": [
+                "orderserv-kfc-apac-olo-api",
+                "yum",
+                "com"
+              ],
+              "path": [
+                "dev",
+                "v1",
+                "baskets",
+                "f5d807b2-3d6e-4721-a641-3033081b7f43",
+                "line-items"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Quantity Updated",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 200 OK\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "var jsonData = pm.response.json();",
+                  "var subtotal = jsonData.subtotal || jsonData.total || 0;",
+                  "",
+                  "// Assertion checks if subtotal is improperly formatted in paise without decimal (e.g. > 1000 INR)",
+                  "pm.test(\"Check Subtotal Price Scale | Subtotal: \" + subtotal, function () {",
+                  "    pm.expect(subtotal).to.be.below(1000, \"Defect detected: Subtotal is scaled improperly in response payload (\" + subtotal + \")\");",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept-Language",
+                "value": "en-GB,en-US;q=0.9,en;q=0.8"
+              },
+              {
+                "key": "Authorization",
+                "value": "{{bearer_token_0zp1}}wGKSGpKMIxkgKce0h3d41d_iKsXFamx4fcaWswkMZJ6MvQUgxglWPx6o9O-c_6UiiDOKgs0nMUbZbnaRlpdCWdvREjLRp1VcRyeGDDOMvMiZmMOlMlLohx8nJD8gUFV_3snWB_uCaBq4zQ5v7reWYrGzjEjN1XSsQQVf9pdmDLlQ-NpeXTW74ZvY61GG0GuXal8sBXOdIKHzHdwjw4-_-vNQFZCjryAnaHk6y401rQGVV0s3O-6Ls1Q7yq0zU3QEBCQ0Ag"
+              },
+              {
+                "key": "Connection",
+                "value": "keep-alive"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Origin",
+                "value": "https://online.kfc.co.in"
+              },
+              {
+                "key": "Referer",
+                "value": "https://online.kfc.co.in/"
+              },
+              {
+                "key": "Sec-Fetch-Dest",
+                "value": "empty"
+              },
+              {
+                "key": "Sec-Fetch-Mode",
+                "value": "cors"
+              },
+              {
+                "key": "Sec-Fetch-Site",
+                "value": "cross-site"
+              },
+              {
+                "key": "User-Agent",
+                "value": "Mozilla/5.0 ^(Windows NT 10.0; Win64; x64^) AppleWebKit/537.36 ^(KHTML, like Gecko^) Chrome/154.0.0.0 Safari/537.36"
+              },
+              {
+                "key": "app-source",
+                "value": "web"
+              },
+              {
+                "key": "sec-ch-ua",
+                "value": "\"Chromium\";v=\"154\", \"Google Chrome\";v=\"154\", \"Not A^(Brand\";v=\"99\""
+              },
+              {
+                "key": "sec-ch-ua-mobile",
+                "value": "?0"
+              },
+              {
+                "key": "sec-ch-ua-platform",
+                "value": "\"Windows\""
+              },
+              {
+                "key": "x-correlation-request-id",
+                "value": "367fb2df-aafd-4288-bc16-89c7702f8708"
+              },
+              {
+                "key": "x-correlation-session-id",
+                "value": "518f26d3-ec9e-4d69-bb4c-b5fd68d6588f"
+              },
+              {
+                "key": "x-tenant-id",
+                "value": "15895bb59f7b4bb588ee933f8cd5344a"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"quantity\":1,\"isBundle\":false}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://orderserv-kfc-apac-olo-api.yum.com/dev/v1/baskets/f5d807b2-3d6e-4721-a641-3033081b7f43/line-items/153d0df5-ed56-49a5-b4d6-36e765057600/quantity-updated",
+              "protocol": "https",
+              "host": [
+                "orderserv-kfc-apac-olo-api",
+                "yum",
+                "com"
+              ],
+              "path": [
+                "dev",
+                "v1",
+                "baskets",
+                "f5d807b2-3d6e-4721-a641-3033081b7f43",
+                "line-items",
+                "153d0df5-ed56-49a5-b4d6-36e765057600",
+                "quantity-updated"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Null value updated",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 400 Bad Request\", function () {\r",
+                  "    pm.response.to.have.status(400);\r",
+                  "});\r",
+                  "\r",
+                  "var jsonData = pm.response.json();\r",
+                  "var errCode = jsonData.errorCode || \"BSDE002\";\r",
+                  "\r",
+                  "pm.test(\"Validation Passed | Error Code: \" + errCode, function () {\r",
+                  "    pm.expect(pm.response.code).to.eql(400);\r",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept-Language",
+                "value": "en-GB,en-US;q=0.9,en;q=0.8"
+              },
+              {
+                "key": "Authorization",
+                "value": "{{bearer_token_0zp1}}wGKSGpKMIxkgKce0h3d41d_iKsXFamx4fcaWswkMZJ6MvQUgxglWPx6o9O-c_6UiiDOKgs0nMUbZbnaRlpdCWdvREjLRp1VcRyeGDDOMvMiZmMOlMlLohx8nJD8gUFV_3snWB_uCaBq4zQ5v7reWYrGzjEjN1XSsQQVf9pdmDLlQ-NpeXTW74ZvY61GG0GuXal8sBXOdIKHzHdwjw4-_-vNQFZCjryAnaHk6y401rQGVV0s3O-6Ls1Q7yq0zU3QEBCQ0Ag"
+              },
+              {
+                "key": "Connection",
+                "value": "keep-alive"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Origin",
+                "value": "https://online.kfc.co.in"
+              },
+              {
+                "key": "Referer",
+                "value": "https://online.kfc.co.in/"
+              },
+              {
+                "key": "Sec-Fetch-Dest",
+                "value": "empty"
+              },
+              {
+                "key": "Sec-Fetch-Mode",
+                "value": "cors"
+              },
+              {
+                "key": "Sec-Fetch-Site",
+                "value": "cross-site"
+              },
+              {
+                "key": "User-Agent",
+                "value": "Mozilla/5.0 ^(Windows NT 10.0; Win64; x64^) AppleWebKit/537.36 ^(KHTML, like Gecko^) Chrome/154.0.0.0 Safari/537.36"
+              },
+              {
+                "key": "app-source",
+                "value": "web"
+              },
+              {
+                "key": "sec-ch-ua",
+                "value": "\"Chromium\";v=\"154\", \"Google Chrome\";v=\"154\", \"Not A^(Brand\";v=\"99\""
+              },
+              {
+                "key": "sec-ch-ua-mobile",
+                "value": "?0"
+              },
+              {
+                "key": "sec-ch-ua-platform",
+                "value": "\"Windows\""
+              },
+              {
+                "key": "x-correlation-request-id",
+                "value": "367fb2df-aafd-4288-bc16-89c7702f8708"
+              },
+              {
+                "key": "x-correlation-session-id",
+                "value": "518f26d3-ec9e-4d69-bb4c-b5fd68d6588f"
+              },
+              {
+                "key": "x-tenant-id",
+                "value": "15895bb59f7b4bb588ee933f8cd5344a"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"quantity\":0,\"isBundle\":false}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://orderserv-kfc-apac-olo-api.yum.com/dev/v1/baskets/f5d807b2-3d6e-4721-a641-3033081b7f43/line-items/153d0df5-ed56-49a5-b4d6-36e765057600/quantity-updated",
+              "protocol": "https",
+              "host": [
+                "orderserv-kfc-apac-olo-api",
+                "yum",
+                "com"
+              ],
+              "path": [
+                "dev",
+                "v1",
+                "baskets",
+                "f5d807b2-3d6e-4721-a641-3033081b7f43",
+                "line-items",
+                "153d0df5-ed56-49a5-b4d6-36e765057600",
+                "quantity-updated"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "negative value updated",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "var jsonData = pm.response.json();\r",
+                  "\r",
+                  "pm.test(\"API Validation Defect | Returns 200 OK for Negative Quantity\", function () {\r",
+                  "    pm.expect(pm.response.code).to.eql(200);\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Flag Defect: Unchecked Negative Input Accepted\", function () {\r",
+                  "    // Documents the missing server-side input validation bug\r",
+                  "    pm.expect(pm.response.code).to.eql(200);\r",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept-Language",
+                "value": "en-GB,en-US;q=0.9,en;q=0.8"
+              },
+              {
+                "key": "Authorization",
+                "value": "{{bearer_token_0zp1}}wGKSGpKMIxkgKce0h3d41d_iKsXFamx4fcaWswkMZJ6MvQUgxglWPx6o9O-c_6UiiDOKgs0nMUbZbnaRlpdCWdvREjLRp1VcRyeGDDOMvMiZmMOlMlLohx8nJD8gUFV_3snWB_uCaBq4zQ5v7reWYrGzjEjN1XSsQQVf9pdmDLlQ-NpeXTW74ZvY61GG0GuXal8sBXOdIKHzHdwjw4-_-vNQFZCjryAnaHk6y401rQGVV0s3O-6Ls1Q7yq0zU3QEBCQ0Ag"
+              },
+              {
+                "key": "Connection",
+                "value": "keep-alive"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Origin",
+                "value": "https://online.kfc.co.in"
+              },
+              {
+                "key": "Referer",
+                "value": "https://online.kfc.co.in/"
+              },
+              {
+                "key": "Sec-Fetch-Dest",
+                "value": "empty"
+              },
+              {
+                "key": "Sec-Fetch-Mode",
+                "value": "cors"
+              },
+              {
+                "key": "Sec-Fetch-Site",
+                "value": "cross-site"
+              },
+              {
+                "key": "User-Agent",
+                "value": "Mozilla/5.0 ^(Windows NT 10.0; Win64; x64^) AppleWebKit/537.36 ^(KHTML, like Gecko^) Chrome/154.0.0.0 Safari/537.36"
+              },
+              {
+                "key": "app-source",
+                "value": "web"
+              },
+              {
+                "key": "sec-ch-ua",
+                "value": "\"Chromium\";v=\"154\", \"Google Chrome\";v=\"154\", \"Not A^(Brand\";v=\"99\""
+              },
+              {
+                "key": "sec-ch-ua-mobile",
+                "value": "?0"
+              },
+              {
+                "key": "sec-ch-ua-platform",
+                "value": "\"Windows\""
+              },
+              {
+                "key": "x-correlation-request-id",
+                "value": "367fb2df-aafd-4288-bc16-89c7702f8708"
+              },
+              {
+                "key": "x-correlation-session-id",
+                "value": "518f26d3-ec9e-4d69-bb4c-b5fd68d6588f"
+              },
+              {
+                "key": "x-tenant-id",
+                "value": "15895bb59f7b4bb588ee933f8cd5344a"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"quantity\":-5,\"isBundle\":false}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://orderserv-kfc-apac-olo-api.yum.com/dev/v1/baskets/f5d807b2-3d6e-4721-a641-3033081b7f43/line-items/153d0df5-ed56-49a5-b4d6-36e765057600/quantity-updated",
+              "protocol": "https",
+              "host": [
+                "orderserv-kfc-apac-olo-api",
+                "yum",
+                "com"
+              ],
+              "path": [
+                "dev",
+                "v1",
+                "baskets",
+                "f5d807b2-3d6e-4721-a641-3033081b7f43",
+                "line-items",
+                "153d0df5-ed56-49a5-b4d6-36e765057600",
+                "quantity-updated"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Tax & Pre-Checkout Validation",
+      "item": [
+        {
+          "name": "Cart Validation",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": ""
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Cart Validation",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": ""
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "configv2",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": ""
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "authtoken",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": ""
+        }
+      },
+      "response": []
+    }
+  ],
+  "variable": [
+    {
+      "key": "bearer_token_07o8",
+      "secret": true
+    },
+    {
+      "key": "bearer_token_0zp1",
+      "secret": true
+    }
+  ]
+}
