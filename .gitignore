@@ -1,0 +1,8 @@
+/target/
+/test-output/
+/.vscode/
+/.idea/
+*.class
+playwright-report/
+test-results/
+blob-report/
