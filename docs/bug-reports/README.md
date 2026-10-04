@@ -8,7 +8,16 @@ and evidence.
 
 | ID | Title | Severity | Status |
 |----|-------|----------|--------|
-| *No defects logged yet* | | | |
+| BUG-01 | Unidentified Channel fallback allowed | High | Open |
+| BUG-02 | Missing Parameters returns 200 OK | Medium | Open |
+| BUG-03 | Store Item Exclusions endpoint yields 404 | High | Open |
+| BUG-04 | Add Valid Item returns scaled integer subtotal | Critical | Open |
+| BUG-05 | Quantity Update pricing scale calculation defect | Critical | Open |
+| BUG-06 | Null/Zero values update validation check failure | Critical | Open |
+| BUG-07 | Out of stock validation flags allow unavailable items | Critical | Open |
+| BUG-08 | Charity Add Hope totals mapped incorrectly to 0 | High | Open |
+| BUG-09 | System reports false for active tax-inclusive items | High | Open |
+| BUG-10 | Tax base calculation applied returns 0 subtotal value | High | Open |
 
 ## How bugs are reported
 
