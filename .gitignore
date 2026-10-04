@@ -1,8 +1,19 @@
-/target/
-/test-output/
-/.vscode/
-/.idea/
+# Ignore Maven build compilation outputs
+target/
 *.class
-playwright-report/
-test-results/
-blob-report/
+
+# Ignore Allure raw results and compiled report archives
+allure-results/
+allure-report/
+.allure/
+
+# Ignore IDE specific meta-data settings files
+.idea/
+*.iml
+.project
+.classpath
+.settings/
+
+# Ignore OS files
+.DS_Store
+Thumbs.db

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org">
+<suite name="KFC API Regression Suite">
+<listeners>
+        <listener class-name="io.qameta.allure.testng.AllureTestNg"/>
+    </listeners>
+    <test name="Store Service Functional Tests">
+        <classes>
+            <class name="com.kiaap.automation.tests.StoreServiceTests"/>
+            <class name="com.kiaap.automation.tests.CatalogTests"/>
+             <class name="com.kiaap.automation.tests.CartTests"/>
+             <class name="com.kiaap.automation.tests.BasketTests"/>
+
+        </classes>
+    </test>
+</suite>

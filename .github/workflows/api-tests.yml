@@ -1,0 +1,41 @@
+name: API Automation CI Engine
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  automation-suite:
+    name: Execute 22 Core Test Verification Pipelines
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Source Infrastructure
+        uses: actions/checkout@v4
+
+      - name: Initialize Java Development Kit Environment
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+          cache: 'maven'
+
+      - name: Inject Mock Execution Configurations for Pipeline Compatibility
+        run: |
+          mkdir -p src/test/resources
+          echo "base.url=https://yum.com" > src/test/resources/config.properties
+          echo "tenant.id=15895bb59f7b4bb588ee933f8cd5344a" >> src/test/resources/config.properties
+          echo "bearer.token=GH_PIPELINE_MOCK_ENV_TOKEN" >> src/test/resources/config.properties
+
+      - name: Execute Full Automation Engine
+        run: mvn clean test
+
+      - name: Preserve Raw Allure Results Artifact Tree
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: raw-allure-execution-results
+          path: allure-results/
+          retention-days: 5
