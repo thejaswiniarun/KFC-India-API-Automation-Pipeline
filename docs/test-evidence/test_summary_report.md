@@ -31,7 +31,7 @@ zero-quantity validation, out-of-stock validation), so the cart/basket flow is
 | Medium | 1 | BUG-02 |
 | Low | 0 | — |
 
-All 10 defects are **Open**. Full details: [`bug-reports/`](bug-reports/README.md).
+All 10 defects are **Open**. Full details: [`bug-reports`](https://github.com/thejaswiniarun/KFC-India-API-Automation-Pipeline/blob/main/docs/bug-reports/README.md).
 
 ## 4. Key Findings
 
@@ -58,8 +58,8 @@ All 10 defects are **Open**. Full details: [`bug-reports/`](bug-reports/README.m
 
 ## 7. Evidence
 
-- Execution matrix: [`execution-matrix.md`](execution-matrix.md)
-- Screenshots, raw logs, Allure and CI runs: [`test-evidence/`](test-evidence/README.md)
+- Execution matrix: [`execution-matrix.md`]([execution-matrix.md](https://github.com/thejaswiniarun/KFC-India-API-Automation-Pipeline/blob/main/docs/execution-matrix.md))
+- Screenshots, raw logs, Allure and CI runs: [`test-evidence/`](https://github.com/thejaswiniarun/KFC-India-API-Automation-Pipeline/tree/main/docs/test-evidence))
 
 ## 8. Limitations
 
