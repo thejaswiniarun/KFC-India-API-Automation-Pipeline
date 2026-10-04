@@ -58,8 +58,8 @@ All 10 defects are **Open**. Full details: [`bug-reports`](https://github.com/th
 
 ## 7. Evidence
 
-- Execution matrix: [`execution-matrix.md`]([execution-matrix.md](https://github.com/thejaswiniarun/KFC-India-API-Automation-Pipeline/blob/main/docs/execution-matrix.md))
-- Screenshots, raw logs, Allure and CI runs: [`test-evidence/`](https://github.com/thejaswiniarun/KFC-India-API-Automation-Pipeline/tree/main/docs/test-evidence))
+- Execution matrix: [`execution-matrix.md`](https://github.com/thejaswiniarun/KFC-India-API-Automation-Pipeline/blob/main/docs/execution-matrix.md)
+- Screenshots, raw logs, Allure and CI runs: [`test-evidence/`](https://github.com/thejaswiniarun/KFC-India-API-Automation-Pipeline/tree/main/docs/test-evidence)
 
 ## 8. Limitations
 
