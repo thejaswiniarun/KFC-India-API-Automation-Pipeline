@@ -85,7 +85,7 @@ Build and validate a stable, high-performance API test automation suite that ver
 | Jira requirements mapping | Test records imported and mapped under project epics |
 | Source code repository | Maven framework pushed to GitHub (`/src/test/java`) |
 | Visual dashboards | Allure HTML reports with embedded cURL payloads and response details |
-| Defect reports | Separate bug reports for failed items ([`bug-reports/`](../bug-reports/README.md)) |
+| Defect reports | Separate bug reports for failed items ([`bug-reports/`](bug-reports/README.md)) |
 
 ## 8. Success Criteria
 
@@ -107,6 +107,6 @@ Build and validate a stable, high-performance API test automation suite that ver
 | Test Plan (this document) | Single source of truth for scope, environment, and execution boundaries |
 | Test Case Inventory ([`test-cases.xlsx`](test-cases.xlsx)) | All positive, negative, and edge-case scenarios with pre-conditions, steps, and expected JSON |
 | Test Execution Matrix ([`execution-matrix.md`](execution-matrix.md)) | Pass/fail status of every test case with logs |
-| Automated Test Evidence ([`../test-evidence/`](../test-evidence/README.md)) | Allure dashboards, cURL requests, response headers, payloads, timings |
-| Defect Log & Bug Reports ([`../bug-reports/`](../bug-reports/README.md)) | All anomalies with steps to reproduce and actual vs. expected results |
+| Automated Test Evidence ([`test-evidence/`](test-evidence/README.md)) | Allure dashboards, cURL requests, response headers, payloads, timings |
+| Defect Log & Bug Reports ([`bug-reports/`](bug-reports/README.md)) | All anomalies with steps to reproduce and actual vs. expected results |
 | Test Summary Report ([`test-summary-report.md`](test-summary-report.md)) | Coverage, automation rate, bug counts, and quality sign-off recommendation |
