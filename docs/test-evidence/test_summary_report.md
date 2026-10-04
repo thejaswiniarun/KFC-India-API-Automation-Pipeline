@@ -31,7 +31,7 @@ zero-quantity validation, out-of-stock validation), so the cart/basket flow is
 | Medium | 1 | BUG-02 |
 | Low | 0 | — |
 
-All 10 defects are **Open**. Full details: [`bug-reports/`](../bug-reports/README.md).
+All 10 defects are **Open**. Full details: [`bug-reports/`](bug-reports/README.md).
 
 ## 4. Key Findings
 
@@ -59,7 +59,7 @@ All 10 defects are **Open**. Full details: [`bug-reports/`](../bug-reports/READM
 ## 7. Evidence
 
 - Execution matrix: [`execution-matrix.md`](execution-matrix.md)
-- Screenshots, raw logs, Allure and CI runs: [`test-evidence/`](../test-evidence)
+- Screenshots, raw logs, Allure and CI runs: [`test-evidence/`](test-evidence/README.md)
 
 ## 8. Limitations
 
