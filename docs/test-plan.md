@@ -58,8 +58,6 @@ Build and validate a stable, high-performance API test automation suite that ver
 
 ## 5. Risks and Mitigation
 
-> Replace this table with the entries from your Confluence risk database.
-
 | Risk | Impact | Mitigation |
 |------|--------|------------|
 | Testing against live production | Rate limiting or blocking | Low-volume requests, no payments, whitelisted client headers |
@@ -72,16 +70,16 @@ Build and validate a stable, high-performance API test automation suite that ver
 | Days | Phase | Activities |
 |------|-------|------------|
 | 1–2 | Scoping & design | API scanning and scope framing (Postman) |
-| 3–4 | Case writing & upload | Test cases in Excel; Jira import and mapping |
-| 5–16 | Code development | Framework setup (Maven, TestNG, Playwright); test suite design and request context mapping; Playwright scripting and payload parsing; Allure filter integration and assertion debugging |
-| 17–18 | CI/CD linkage | GitHub Actions runner configuration; Allure report cloud setup |
-| 19–20 | Pipeline & close | Execution, evidence capture, and defect tracking |
+| 2-3 | Case writing & upload | Test cases in Excel; Jira import and mapping |
+| 3-5 | Code development | Framework setup (Maven, TestNG, Playwright); test suite design and request context mapping; Playwright scripting and payload parsing; Allure filter integration and assertion debugging |
+| 5–7 | CI/CD linkage | GitHub Actions runner configuration; Allure report cloud setup |
+| 8–10 | Pipeline & close | Execution, evidence capture, and defect tracking |
 
 ## 7. Deliverables
 
 | Deliverable | Description |
 |-------------|-------------|
-| Test case inventory | Completed Excel test case sheet ([`test-cases.xlsx`](test-cases.xlsx)) |
+| Test case inventory | Completed Excel test case sheet ([`test-cases.md`](test-cases.md)) |
 | Jira requirements mapping | Test records imported and mapped under project epics |
 | Source code repository | Maven framework pushed to GitHub (`/src/test/java`) |
 | Visual dashboards | Allure HTML reports with embedded cURL payloads and response details |
@@ -105,8 +103,8 @@ Build and validate a stable, high-performance API test automation suite that ver
 | Artifact | Purpose |
 |----------|---------|
 | Test Plan (this document) | Single source of truth for scope, environment, and execution boundaries |
-| Test Case Inventory ([`test-cases.xlsx`](test-cases.xlsx)) | All positive, negative, and edge-case scenarios with pre-conditions, steps, and expected JSON |
+| Test Case Inventory ([`test-cases.md`](test-cases.md)) | All positive, negative, and edge-case scenarios with pre-conditions, steps, and expected JSON |
 | Test Execution Matrix ([`execution-matrix.md`](execution-matrix.md)) | Pass/fail status of every test case with logs |
-| Automated Test Evidence ([`test-evidence/`](test-evidence/README.md)) | Allure dashboards, cURL requests, response headers, payloads, timings |
+| Automated Test Evidence ([`test-evidence/`](https://github.com/thejaswiniarun/KFC-India-API-Automation-Pipeline/tree/main/docs/test-evidence)) | Allure dashboards, cURL requests, response headers, payloads, timings |
 | Defect Log & Bug Reports ([`bug-reports/`](bug-reports/README.md)) | All anomalies with steps to reproduce and actual vs. expected results |
-| Test Summary Report ([`test-summary-report.md`](test-summary-report.md)) | Coverage, automation rate, bug counts, and quality sign-off recommendation |
+| Test Summary Report ([`test-summary-report.md`](https://github.com/thejaswiniarun/KFC-India-API-Automation-Pipeline/blob/main/docs/test-evidence/test_summary_report.md)) | Coverage, automation rate, bug counts, and quality sign-off recommendation |
