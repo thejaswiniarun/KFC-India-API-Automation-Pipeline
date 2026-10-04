@@ -23,7 +23,7 @@ An end-to-end API test suite for a food-ordering backend. It follows a real
 QA workflow: **plan → design test cases → automate → run in CI → report.**
 
 **Result at a glance:** 22 test cases executed · 12 passed · 10 defects logged
-(4 Critical, 6 High/Medium). See the [Test Summary Report](docs/test-summary-report.md).
+(4 Critical, 6 High/Medium). See the [Test Summary Report](https://github.com/thejaswiniarun/KFC-India-API-Automation-Pipeline/blob/main/docs/test-evidence/test_summary_report.md).
 
 ## 🧭 What It Tests
 
@@ -70,9 +70,9 @@ Java 17+ · Maven · Playwright (API testing) · TestNG · Allure Report · GitH
 | Document | Location |
 |----------|----------|
 | Test Plan | [`docs/test-plan.md`](docs/test-plan.md) |
-| Test Cases | [`docs/test-cases.xlsx`](docs/test-cases.xlsx) |
+| Test Cases | [`docs/test-cases.md`](docs/test-cases.md) |
 | Execution Matrix & Evidence Index | [`docs/execution-matrix.md`](docs/execution-matrix.md) |
-| Test Summary Report | [`docs/test-summary-report.md`](docs/test-summary-report.md) |
+| Test Summary Report | [`docs/test-summary-report.md`](docs/test-evidence/test_summary_report.md) |
 
 ## 🐞 Bug Reports
 
@@ -100,7 +100,7 @@ Screenshots, logs, and reports from test runs are stored in [`docs/test-evidence
 |----------|----------|
 | Postman exploration runs (passing tests) | [`docs/test-evidence/postman/`](docs/test-evidence/postman/) |
 | Bug screenshots | [`docs/test-evidence/bugs/`](docs/test-evidence/bugs/) |
-| Raw automation logs | [`docs/test-evidence/raw-logs/`](docs/test-evidence/raw-logs/) |
+| Raw automation logs | [`docs/test-evidence/raw-logs/`](https://github.com/thejaswiniarun/KFC-India-API-Automation-Pipeline/tree/main/docs/test-evidence/raw-logs) |
 | Allure report dashboards | [`docs/test-evidence/allure-reports/`](docs/test-evidence/allure-reports/) |
 | CI pipeline runs | [`docs/test-evidence/github-actions/`](docs/test-evidence/github-actions/) |
 
@@ -109,17 +109,18 @@ Screenshots, logs, and reports from test runs are stored in [`docs/test-evidence
 ```
 ├── docs/
 │   ├── test-plan.md             # Test plan
-│   ├── test-cases.xlsx          # Test case inventory
+│   ├── test-cases.md          # Test case inventory
 │   ├── execution-matrix.md      # Pass/fail matrix + evidence index
-│   ├── test-summary-report.md   # Final summary report
 │   ├── bug-reports/             # BUG-01 to BUG-10 + template
 │   ├── postman/                 # Postman collection
-│   └── test-evidence/           # Screenshots, raw logs, Allure & CI evidence
+│   ├── postman-testcases        #Explaratory postman Execution Results
+│   ├── test-evidence/           # Screenshots, raw logs, Allure & CI evidence
 │       ├── postman/
 │       ├── bugs/
 │       ├── raw-logs/
 │       ├── allure-reports/
-│       └── github-actions/
+│       ├── github-actions/
+│      ├── test-summary-report.md   # Final summary report
 ├── src/test/java/               # Automation code
 ├── .github/workflows/           # CI pipeline
 └── pom.xml                      # Maven config
