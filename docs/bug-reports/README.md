@@ -20,26 +20,3 @@ file with steps to reproduce, expected vs. actual results, and evidence.
 
 **By severity:** Critical 4 · High 5 · Medium 1 · Low 0
 
-## How bugs are reported
-
-1. Copy [`BUG-TEMPLATE.md`](BUG-TEMPLATE.md)
-2. Rename it `BUG-NN-short-title.md` (e.g. `BUG-11-cart-timeout.md`)
-3. Fill in the details and attach screenshots from [`../test-evidence/bugs/`](../test-evidence/bugs/)
-4. Add a row to the summary table above
-
-## Severity guide
-
-| Severity | Meaning |
-|----------|---------|
-| Critical | Core flow is broken (e.g. cart or checkout fails) |
-| High | Wrong data or calculation (e.g. incorrect total) |
-| Medium | Incorrect behaviour with a workaround |
-| Low | Minor issue, cosmetic data or naming |
-
-## Priority guide
-
-| Priority | Meaning |
-|----------|---------|
-| P1 | Fix immediately, blocks ordering |
-| P2 | Fix in the next release |
-| P3 | Fix when capacity allows |
